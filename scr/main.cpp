@@ -1,3 +1,4 @@
+//Edicion: Junio 9 2025
 #include <iostream>
 #include "render/raytracer.h"
 #include "loader/stl_loader.h"
