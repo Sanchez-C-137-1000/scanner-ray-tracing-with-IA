@@ -1,5 +1,7 @@
 // Codigo realizado por: javier triana sanchez
 // Fecha de creacion: mayo 29 2025
+//Edición: junio 9 2025
+//Editado por: Shekhina Velasquez
 // Descripcion:
 //Leer archivos STL binarios y convertirlos en triángulos.
 // Lee el formato binario de STL (80 bytes de cabecera + lista de triángulos).
@@ -9,10 +11,16 @@
 #include "stl_loader.h"
 #include <fstream>
 #include <cstdint>
+#include <iostream>
 
 std::vector<Triangle> STLLoader::load(const std::string& filepath) {
     std::ifstream file(filepath, std::ios::binary);
     std::vector<Triangle> triangles;
+
+    if (!file) {
+        std::cerr << "Error abriendo archivo STL: " << filepath << std::endl;
+        return {};
+    }
 
     char header[80];
     file.read(header, 80); // Ignorar cabecera
