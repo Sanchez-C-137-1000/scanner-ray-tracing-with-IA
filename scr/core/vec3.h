@@ -1,5 +1,7 @@
 // Codigo realizado por: javier triana sanchez
 // Fecha de creacion: mayo 29 2025
+// Edicion: Junio 9 2025
+// Por: Shekhina Velasquez
 // Descripcion:
 // Este codigo soporta todas las operaciones  necesarias para 
 // la tecnica de ray tracing, incluyendo operaciones vectoriales
