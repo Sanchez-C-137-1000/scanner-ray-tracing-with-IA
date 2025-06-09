@@ -1,7 +1,7 @@
 // Codigo realizado por: javier triana sanchez
 // Fecha de creacion: mayo 29 2025
-//Edición: junio 9 2025
-//Editado por: Shekhina Velasquez
+// Edición: Junio 9 2025
+// Por: Shekhina Velasquez
 // Descripcion:
 //Leer archivos STL binarios y convertirlos en triángulos.
 // Lee el formato binario de STL (80 bytes de cabecera + lista de triángulos).
