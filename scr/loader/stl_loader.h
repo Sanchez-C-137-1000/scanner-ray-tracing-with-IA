@@ -1,5 +1,7 @@
 // Codigo realizado por: javier triana sanchez
 // Fecha de creacion: mayo 29 2025
+// Edición: Junio 9 2025
+// Por: Shekhina Velasquez
 // Descripcion:
 //Leer archivos STL binarios y convertirlos en triángulos.
 
