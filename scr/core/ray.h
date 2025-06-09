@@ -1,5 +1,7 @@
 // Codigo realizado por: javier triana sanchez
 // Fecha de creacion: mayo 29 2025
+// Edición: Junio 9 2025
+// Por: Shekhina Velasquez
 // Descripcion:
 // En este codigo describe la estructura de un rayo y su interaccion con la escena
 //Este se define por su origen y direccion
