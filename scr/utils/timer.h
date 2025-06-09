@@ -1,12 +1,13 @@
 // timer_advanced.h
-//Edición: 9/06/2025
+//Edición: Junio 9 2025
+//Por: Shekhina Velasquez
 #pragma once
 #include <chrono>
 #include <string>
 #include <vector>
 #include <iostream>
 
-class AdvancedTimer {
+class Timer {
 public:
     void start() {
         start_time = std::chrono::high_resolution_clock::now();
