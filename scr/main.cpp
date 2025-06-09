@@ -1,4 +1,5 @@
 //Edicion: Junio 9 2025
+//Por: Shekhina Velasquez
 #include <iostream>
 #include "render/raytracer.h"
 #include "loader/stl_loader.h"
