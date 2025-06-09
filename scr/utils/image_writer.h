@@ -1,4 +1,5 @@
 //Edición: 9/06/2025
+//Por: Shekhina Velasquez
 #pragma once
 #include "vec3.h"
 #include <vector>
