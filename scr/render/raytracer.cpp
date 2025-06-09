@@ -1,15 +1,18 @@
 // Codigo realizado por: javier triana sanchez
 // Fecha de creacion: mayo 29 2025
+// Edición: Junio 9 2025
+// Por: Shekhina Velasquez
 // Descripcion:
 //intersect(): Detecta colisiones rayo-triángulo.
 // computeColor(): Aplica iluminación difusa y ambiental.
 //render(): Lanza rayos por cada píxel y guarda los colores resultantes.
 
 #include "raytracer.h"
+#include "camera.h"
 #include <limits>
 
 bool RayTracer::intersect(const Ray& ray, const Triangle& tri, float& t) {
-     const float EPSILON = 0.0000001f;
+    const float EPSILON = 1e-7f;
     Vec3 edge1 = tri.v1 - tri.v0;
     Vec3 edge2 = tri.v2 - tri.v0;
     Vec3 h = ray.direction.cross(edge2);
@@ -33,7 +36,6 @@ bool RayTracer::intersect(const Ray& ray, const Triangle& tri, float& t) {
         
     t = f * edge2.dot(q);
     return t > EPSILON;
-    
 }
 
 Vec3 RayTracer::computeColor(const Vec3& point, const Vec3& normal) {
@@ -42,12 +44,16 @@ Vec3 RayTracer::computeColor(const Vec3& point, const Vec3& normal) {
     return Vec3{0.7f, 0.3f, 0.2f} * (0.1f + diffuse); // Ambient + Diffuse
 }
 
-void RayTracer::render(const std::vector<Triangle>& triangles, int width, int height) {
+void RayTracer::render(const std::vector<Triangle>& triangles, int width, int height, std::vector<Vec3>& image) {
+    Camera cam({0, 0, 5}, {0, 0, 0}, {0, 1, 0}, 45.0f, float(width) / height);
+
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
-            Ray ray = { /* Calcular dirección del rayo */ };
+            float u = float(x) / (width - 1);
+            float v = float(y) / (height - 1);
+            Ray ray = cam.getRay(u, v);
             Vec3 color = traceRay(ray, triangles);
-            // Guardar color en el píxel (x,y)
+            image[y * width + x] = color; // Guardar color en el buffer
         }
     }
 }
