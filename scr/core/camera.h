@@ -1,3 +1,5 @@
+//Edicion: Junio 9 2025
+//Por: Shekhina Velasquez
 #pragma once
 #include "ray.h"
 
