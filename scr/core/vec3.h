@@ -1,34 +1,52 @@
-// Codigo realizado por: javier triana sanchez
-// Fecha de creacion: mayo 29 2025
-// Edicion: Junio 9 2025
-// Por: Shekhina Velasquez
-// Descripcion:
-// Este codigo soporta todas las operaciones  necesarias para 
-// la tecnica de ray tracing, incluyendo operaciones vectoriales
-// como suma, resta, producto punto y cruz, normalización.
-// Se usa para calcular la interacciones, iluminacion y direccion de rayos.
-#pragma once
-#include <cmath>
+#ifndef VEC3_H
+#define VEC3_H
 
-struct Vec3 {
+#include <math.h>
+
+// Estructura para un vector 3D
+typedef struct {
     float x, y, z;
+} Vec3;
 
-    // Operaciones básicas
-    Vec3 operator+(const Vec3& v) const { return {x+v.x, y+v.y, z+v.z}; }
-    Vec3 operator-(const Vec3& v) const { return {x-v.x, y-v.y, z-v.z}; }
-    Vec3 operator*(float s) const { return {x*s, y*s, z*s}; }
+// Suma de vectores
+static inline Vec3 vec3_add(Vec3 a, Vec3 b) {
+    return (Vec3){a.x + b.x, a.y + b.y, a.z + b.z};
+}
 
-    // Producto punto y cruz
-    float dot(const Vec3& v) const { return x*v.x + y*v.y + z*v.z; }
-    Vec3 cross(const Vec3& v) const {
-        return {
-            y*v.z - z*v.y,
-            z*v.x - x*v.z,
-            x*v.y - y*v.x
-        };
-    }
+// Resta de vectores
+static inline Vec3 vec3_sub(Vec3 a, Vec3 b) {
+    return (Vec3){a.x - b.x, a.y - b.y, a.z - b.z};
+}
 
-    // Normalización
-    float length() const { return std::sqrt(x*x + y*y + z*z); }
-    Vec3 normalize() const { float l = length(); return {x/l, y/l, z/l}; }
-};
+// Multiplicación por escalar
+static inline Vec3 vec3_mul(Vec3 v, float s) {
+    return (Vec3){v.x * s, v.y * s, v.z * s};
+}
+
+// Producto punto
+static inline float vec3_dot(Vec3 a, Vec3 b) {
+    return a.x * b.x + a.y * b.y + a.z * b.z;
+}
+
+// Producto cruz
+static inline Vec3 vec3_cross(Vec3 a, Vec3 b) {
+    return (Vec3){
+        a.y * b.z - a.z * b.y,
+        a.z * b.x - a.x * b.z,
+        a.x * b.y - a.y * b.x
+    };
+}
+
+// Longitud del vector
+static inline float vec3_length(Vec3 v) {
+    return sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
+}
+
+// Normalización
+static inline Vec3 vec3_normalize(Vec3 v) {
+    float l = vec3_length(v);
+    if (l == 0.0f) return (Vec3){0.0f, 0.0f, 0.0f};
+    return (Vec3){v.x / l, v.y / l, v.z / l};
+}
+
+#endif // VEC3_H
