@@ -1,5 +1,6 @@
 #include "render_engine.h"
 #include "point_cloud.h"
+#include "camera.h"
 #include <math.h>
 
 static Camera cam;
