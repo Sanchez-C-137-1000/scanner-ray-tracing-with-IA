@@ -1,21 +1,17 @@
-// Codigo realizado por: javier triana sanchez
-// Fecha de creacion: mayo 29 2025
-// Edición: Junio 9 2025
-// Por: Shekhina Velasquez
-// Descripcion:
-// En este codigo describe la estructura de un rayo y su interaccion con la escena
-//Este se define por su origen y direccion
-// at(t) devuelve el punto a lo largo del rayo, esto es util para las iteracciones 
+#ifndef RAY_H
+#define RAY_H
 
-#pragma once
 #include "vec3.h"
 
-struct Ray {
-    Vec3 origin;    // Origen del rayo (ej: posición de la cámara)
-    Vec3 direction; // Dirección (normalizada)
+// Estructura de un rayo
+typedef struct {
+    Vec3 origin;    // Origen del rayo
+    Vec3 direction; // Dirección normalizada
+} Ray;
 
-    // Calcular punto en el rayo a distancia 't'
-    Vec3 at(float t) const {
-        return origin + direction * t;
-    }
-};
+// Devuelve el punto a lo largo del rayo a distancia 't'
+static inline Vec3 ray_at(Ray ray, float t) {
+    return vec3_add(ray.origin, vec3_mul(ray.direction, t));
+}
+
+#endif // RAY_H
