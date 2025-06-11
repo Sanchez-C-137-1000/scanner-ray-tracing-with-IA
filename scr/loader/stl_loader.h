@@ -56,5 +56,4 @@ void stl_free(TriangleArray* array) {
     array->triangles = NULL;
     array->count = 0;
 }
-
 #endif
