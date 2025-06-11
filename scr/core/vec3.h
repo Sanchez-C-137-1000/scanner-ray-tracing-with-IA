@@ -8,6 +8,8 @@ typedef struct {
     float x, y, z;
 } Vec3;
 
+// Funciones básicas
+
 // Suma de vectores
 static inline Vec3 vec3_add(Vec3 a, Vec3 b) {
     return (Vec3){a.x + b.x, a.y + b.y, a.z + b.z};
@@ -18,7 +20,7 @@ static inline Vec3 vec3_sub(Vec3 a, Vec3 b) {
     return (Vec3){a.x - b.x, a.y - b.y, a.z - b.z};
 }
 
-// Multiplicación por escalar
+// Producto por escalar
 static inline Vec3 vec3_mul(Vec3 v, float s) {
     return (Vec3){v.x * s, v.y * s, v.z * s};
 }
@@ -37,16 +39,16 @@ static inline Vec3 vec3_cross(Vec3 a, Vec3 b) {
     };
 }
 
-// Longitud del vector
+// Magnitud
 static inline float vec3_length(Vec3 v) {
     return sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
 }
 
 // Normalización
 static inline Vec3 vec3_normalize(Vec3 v) {
-    float l = vec3_length(v);
-    if (l == 0.0f) return (Vec3){0.0f, 0.0f, 0.0f};
-    return (Vec3){v.x / l, v.y / l, v.z / l};
+    float len = vec3_length(v);
+    if (len == 0.0f) return (Vec3){0.0f, 0.0f, 0.0f};
+    return (Vec3){v.x / len, v.y / len, v.z / len};
 }
 
 #endif // VEC3_H
