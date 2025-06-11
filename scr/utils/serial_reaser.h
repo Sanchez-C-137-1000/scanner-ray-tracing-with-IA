@@ -1,6 +1,6 @@
 #ifndef SERIAL_READER_H
 #define SERIAL_READER_H
-
+#define SERIAL_PORT "COM12"
 #include "point_cloud.h"
 
 void serial_init(const char* port);
